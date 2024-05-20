@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-blue-500;
+    @apply bg-[url('https://wallpapers.com/images/featured/cryptocurrency-pictures-79md0ju7us1a1cwu.jpg')] bg-cover bg-opacity-100;
   }
 }
 
