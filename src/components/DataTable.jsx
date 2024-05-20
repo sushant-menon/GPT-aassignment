@@ -44,14 +44,14 @@ const DataTable = () => {
 
   return (
     <div className="w-full px-16 py-16">
-      <div className=" rounded-xl border-gray-900 h-full w-full text-center">
+      <div className=" rounded-xl border-black h-full w-full text-center">
         {/* Heading and search */}
         <div className="py-8">
           <div className="flex items-center justify-around">
             <h1 className="text-3xl font-extrabold">CoinLore API</h1>
             <input
               onChange={handleSearch}
-              className="outline-none rounded-lg px-2 py-3 w-72 bg-gray-600"
+              className="outline-none rounded-lg px-2 py-3 w-72 bg-gray-500 focus:bg-gray-400 text-xl"
               type="text"
               placeholder="Search"
             />
@@ -71,9 +71,9 @@ const DataTable = () => {
             })}
           </div>
         ) : (
-          <table className="w-full border-collapse">
+          <table className="w-full border-collapse bg-gradient-to-r from-indigo-300 to-blue-800 opacity-75">
             <thead>
-              <tr className="border-4 border-gray-900 border-b-4 h-16 font-extrabold text-xl">
+              <tr className="border-4 border-black h-20 font-extrabold text-2xl">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Rank</th>
@@ -87,14 +87,14 @@ const DataTable = () => {
               {filteredData
                 .slice((page - 1) * 10, (page - 1) * 10 + 10)
                 .map(i => (
-                  <tr className="" key={i.id}>
+                  <tr className="text-xl font-bold" key={i.id}>
                     <td className="py-6">{i.id}</td>
                     <td className="">{i.name}</td>
                     <td className="">{i.rank}</td>
                     <td className="">{i.price_usd}</td>
 
                     <td>
-                      <div className="flex border-b-0 items-center border-l-0 border-r-0 justify-center">
+                      <div className="flex border-b-0 border-white items-center border-l-0 border-r-0 justify-center">
                         {i.percent_change_24h}
 
                         {i.percent_change_24h <= 0 ? (
@@ -123,7 +123,9 @@ const DataTable = () => {
           <div className="mt-10 flex justify-center items-center cursor-pointer">
             <span
               onClick={() => pageChange(page - 1)}
-              className={`text-3xl ${page > 1 ? "" : "cursor-not-allowed"}`}
+              className={`text-3xl bg-white rounded px-2 ${
+                page > 1 ? "" : "cursor-not-allowed"
+              }`}
             >
               ◀️
             </span>
@@ -131,7 +133,7 @@ const DataTable = () => {
               return (
                 <span
                   onClick={() => pageChange(i + 1)}
-                  className={`rounded-full border-black border mx-3 py-2 px-4  cursor-pointer ${
+                  className={`rounded-full border-white border mx-3 py-2 px-4  cursor-pointer ${
                     page === i + 1
                       ? "bg-white/45 text-black font-bold"
                       : "bg-black text-white/60"
@@ -144,7 +146,7 @@ const DataTable = () => {
             })}
             <span
               onClick={() => pageChange(page + 1)}
-              className={`text-3xl cursor-pointer ${
+              className={`text-3xl cursor-pointer bg-white rounded px-2 ${
                 page < cryptoData.length / 10 ? "" : "cursor-not-allowed"
               }`}
             >
