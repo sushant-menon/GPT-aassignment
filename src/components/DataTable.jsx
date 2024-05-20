@@ -16,7 +16,7 @@ const DataTable = () => {
     const data = await fetch("https://api.coinlore.net/api/tickers/");
     const json = await data.json();
     setCryptoData(json.data);
-    setFilteredData(json.data); // Set initial filtered data to all data
+    setFilteredData(json.data);
     setLoading(false);
   };
 
@@ -34,7 +34,6 @@ const DataTable = () => {
     const searchValue = e.target.value.toLowerCase();
     setSearchTerm(searchValue);
 
-    // Filter data based on search term, considering current page
     const filtered = cryptoData.filter(item =>
       item.name.toLowerCase().includes(searchValue)
     );
